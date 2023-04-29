@@ -28,7 +28,8 @@ public class UsuarioServiceImpl implements UsuarioService {
     @Override
     public Long enviarSesion(ParSesion parSesion) {
         log.trace("Send " + parSesion);
-        kafkaTemplate.send(KafkaConstants.TOPIC_SESSION_ADD, parSesion);
+        kafkaTemplate.send(KafkaConstants.TOPIC_SESSION_ADD_CRM, parSesion);
+        kafkaTemplate.send(KafkaConstants.TOPIC_SESSION_ADD_CORE, parSesion);
         return 1l;
     }
 

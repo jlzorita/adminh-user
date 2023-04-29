@@ -24,7 +24,12 @@ public class KafkaTopicConfig {
     }
 
     @Bean
-    public NewTopic showAddTopic() {
-        return new NewTopic(KafkaConstants.TOPIC_SESSION_ADD, 1, (short) 1);
+    public NewTopic showAddTopicCRM() {
+        return new NewTopic(KafkaConstants.TOPIC_SESSION_ADD_CRM, 1, (short) 1);
+    }
+
+    @Bean
+    public NewTopic showAddTopicCORE() {
+        return new NewTopic(KafkaConstants.TOPIC_SESSION_ADD_CORE, 1, (short) 1);
     }
 }
