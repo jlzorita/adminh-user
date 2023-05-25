@@ -15,14 +15,15 @@ public class LoginRequest {
     private final Usuario usuario;
     @Getter
     @NotNull
-    private final String sesion;
+    private final String[] sesion = new String[2];
 
     @JsonCreator
     public LoginRequest(@JsonProperty("usuarioData") @NotNull final Usuario usuario, String sesion) {
         this.usuario = usuario;
-        this.sesion = sesion;
+        this.sesion[0] = sesion;
+
         // Crear / reiniciar sesión
         Session.removeUsuario(usuario.getUsuario());
-        Session.addUsuario(usuario.getUsuario(), sesion);
+        Session.addUsuario(usuario.getUsuario(), this.sesion);
     }
 }

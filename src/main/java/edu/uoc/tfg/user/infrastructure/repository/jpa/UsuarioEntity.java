@@ -28,6 +28,9 @@ public class UsuarioEntity implements DomainTranslatable<Usuario> {
     @Column(name = "nivel")
     private Nivel nivel;
 
+    @Column(name = "cliente_id")
+    private Long clienteId;
+
     public static UsuarioEntity fromDomain(Usuario user) {
         if (user == null) {
             return null;
@@ -38,6 +41,7 @@ public class UsuarioEntity implements DomainTranslatable<Usuario> {
                 .usuario(user.getUsuario())
                 .password(user.getPassword())
                 .nivel(user.getNivel())
+                .clienteId(user.getClienteId())
                 .build();
     }
     @Override
@@ -47,6 +51,7 @@ public class UsuarioEntity implements DomainTranslatable<Usuario> {
                 .usuario(this.getUsuario())
                 .password(this.getPassword())
                 .nivel(this.getNivel())
+                .clienteId(this.clienteId)
                 .build();
     }
 }

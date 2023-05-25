@@ -1,7 +1,6 @@
 package edu.uoc.tfg.user.infrastructure.kafka;
 
-import edu.uoc.tfg.user.ParSesion;
-import edu.uoc.tfg.user.Session;
+import edu.uoc.tfg.user.SesionData;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringSerializer;
 import org.springframework.beans.factory.annotation.Value;
@@ -22,7 +21,7 @@ public class KafkaProducerConfig {
     private String bootstrapAddress;
 
     @Bean
-    public ProducerFactory<String, ParSesion> sesionProducerFactory() {
+    public ProducerFactory<String, SesionData> sesionProducerFactory() {
         Map<String, Object> configProps = new HashMap<>();
         configProps.put(
                 ProducerConfig.BOOTSTRAP_SERVERS_CONFIG,
@@ -36,8 +35,7 @@ public class KafkaProducerConfig {
     }
 
     @Bean
-    public KafkaTemplate<String, ParSesion> sesionKafkaTemplate() {
+    public KafkaTemplate<String, SesionData> sesionKafkaTemplate() {
         return new KafkaTemplate<>(sesionProducerFactory());
     }
-
 }

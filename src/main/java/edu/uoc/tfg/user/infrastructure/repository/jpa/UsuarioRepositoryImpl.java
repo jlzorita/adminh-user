@@ -16,7 +16,7 @@ public class UsuarioRepositoryImpl implements UsuarioRepository {
 
 
     @Override
-    public Optional<Usuario> findUsuario(String usuario) {
+    public Optional<Usuario> buscaUsuario(String usuario) {
         return jpaRepository.findUsuario(usuario).map(UsuarioEntity::toDomain);
     }
 

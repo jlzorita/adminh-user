@@ -2,9 +2,9 @@
  */
 
 
-INSERT INTO usuario (usuario, password, nivel)
-VALUES ('jlzorita', 'pass', 0)
-        ,('yyang', 'pass', 1)
-        ,('ilopez', 'pass', 2);
+INSERT INTO usuario (usuario, password, nivel, cliente_id)
+VALUES ('jzorita', 'pass', 0, 1)
+        ,('yyang', 'pass', 1, 9)
+        ,('ilopez', 'pass', 2, 0);
 
 

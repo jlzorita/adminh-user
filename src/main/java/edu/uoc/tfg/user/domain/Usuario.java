@@ -14,5 +14,6 @@ public class Usuario {
     private String usuario;
     private String password;
     private Nivel nivel;
+    private Long clienteId;
 
 }

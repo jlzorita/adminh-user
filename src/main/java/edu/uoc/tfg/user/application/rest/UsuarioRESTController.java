@@ -1,6 +1,6 @@
 package edu.uoc.tfg.user.application.rest;
 
-import edu.uoc.tfg.user.ParSesion;
+import edu.uoc.tfg.user.SesionData;
 import edu.uoc.tfg.user.application.request.LoginRequest;
 import edu.uoc.tfg.user.domain.Usuario;
 import edu.uoc.tfg.user.domain.service.UsuarioService;
@@ -11,6 +11,7 @@ import edu.uoc.tfg.user.Session;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
@@ -24,29 +25,27 @@ public class UsuarioRESTController {
     private final UsuarioService usuarioService;
 
     @PostMapping("/login")
-    public Integer login(@RequestBody LoginRequest loginRequest){
+    @ResponseStatus(HttpStatus.OK)
+    public ResponseEntity<Integer> login(@RequestBody LoginRequest loginRequest){
 
         log.trace("login usuario");
+        int level =  usuarioService.login(loginRequest);
 
-        Optional<Usuario> user = usuarioService.findUsuario(loginRequest.getUsuario().getUsuario());
+        if(level >= 0) return ResponseEntity.ok().body(level);
+        return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+    }
 
-        if(user.isPresent()) {
-            if(user.get().getPassword().equals(loginRequest.getUsuario().getPassword())){
-                int level = user.get().getNivel().getValor();
+    @PostMapping("/logout/{usuario}")
+    @ResponseStatus(HttpStatus.OK)
+    public ResponseEntity logout(@PathVariable String usuario){
 
-                ParSesion parSesion = new ParSesion();
-                parSesion.setUsuario(user.get().getUsuario());
-                parSesion.setSesion(Session.getSesion(user.get().getUsuario()));
-                usuarioService.enviarSesion(parSesion);
-                return level;
-            } else return 401; //401 - No autorizado
-
-        } else return 401; //401 - No autorizado
+        if(usuarioService.logout(usuario)) return new ResponseEntity<>(HttpStatus.OK);
+        else return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
     }
 
     @GetMapping("/user/sesion/{usuario}")
     @ResponseStatus(HttpStatus.OK)
-    public String getUser(@PathVariable String usuario) {
+    public String[] getUser(@PathVariable String usuario) {
         return Session.getSesion(usuario);
     }
 }

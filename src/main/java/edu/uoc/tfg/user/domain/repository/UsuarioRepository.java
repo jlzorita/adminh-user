@@ -5,5 +5,5 @@ import edu.uoc.tfg.user.domain.Usuario;
 import java.util.Optional;
 
 public interface UsuarioRepository {
-    Optional<Usuario> findUsuario(String usuario);
+    Optional<Usuario> buscaUsuario(String usuario);
 }
