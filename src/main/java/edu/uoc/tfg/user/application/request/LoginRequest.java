@@ -2,7 +2,7 @@ package edu.uoc.tfg.user.application.request;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import edu.uoc.tfg.user.Session;
+import edu.uoc.tfg.user.Sesion;
 import edu.uoc.tfg.user.domain.Usuario;
 import lombok.Getter;
 
@@ -23,7 +23,7 @@ public class LoginRequest {
         this.sesion[0] = sesion;
 
         // Crear / reiniciar sesión
-        Session.removeUsuario(usuario.getUsuario());
-        Session.addUsuario(usuario.getUsuario(), this.sesion);
+        Sesion.removeUsuario(usuario.getUsuario());
+        Sesion.addUsuario(usuario.getUsuario(), this.sesion);
     }
 }

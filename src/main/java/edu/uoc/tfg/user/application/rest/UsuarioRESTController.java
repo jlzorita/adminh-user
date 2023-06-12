@@ -1,20 +1,16 @@
 package edu.uoc.tfg.user.application.rest;
 
-import edu.uoc.tfg.user.SesionData;
 import edu.uoc.tfg.user.application.request.LoginRequest;
-import edu.uoc.tfg.user.domain.Usuario;
 import edu.uoc.tfg.user.domain.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 
-import edu.uoc.tfg.user.Session;
+import edu.uoc.tfg.user.Sesion;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.Optional;
 
 @Log4j2
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
@@ -46,6 +42,6 @@ public class UsuarioRESTController {
     @GetMapping("/user/sesion/{usuario}")
     @ResponseStatus(HttpStatus.OK)
     public String[] getUser(@PathVariable String usuario) {
-        return Session.getSesion(usuario);
+        return Sesion.getSesion(usuario);
     }
 }

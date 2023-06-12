@@ -6,9 +6,9 @@ import edu.uoc.tfg.user.domain.Usuario;
 
 import java.util.Optional;
 
-public interface UsuarioService {
+public interface  UsuarioService {
     Optional<Usuario> buscaUsuario(String usuario);
-    Long enviarSesion(SesionData parsesion);
+    //Long enviarSesion(SesionData parsesion);
 
     int login(LoginRequest loginRequest);
     Boolean logout(String usuario);

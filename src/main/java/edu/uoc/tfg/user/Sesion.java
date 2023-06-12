@@ -2,12 +2,15 @@ package edu.uoc.tfg.user;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import edu.uoc.tfg.user.infrastructure.kafka.KafkaConstants;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.kafka.core.KafkaTemplate;
 
 @Log4j2
-public class Session {
-
+public class Sesion {
     protected static Map<String,String[]> sesiones = new HashMap<>();
+
 
 
     public static void addUsuario(String usuario, String[] sesion){
@@ -37,6 +40,13 @@ public class Session {
         if(sesiones.containsKey(usuario))
             return sesiones.get(usuario);
         else return null;
+    }
+
+     public static Long enviarSesion(SesionData sesionData, KafkaTemplate kafkaTemplate) {
+        log.trace("Send " + sesionData);
+        kafkaTemplate.send(KafkaConstants.TOPIC_SESSION_CRM, sesionData);
+        kafkaTemplate.send(KafkaConstants.TOPIC_SESSION_CORE, sesionData);
+        return 1l;
     }
 
 

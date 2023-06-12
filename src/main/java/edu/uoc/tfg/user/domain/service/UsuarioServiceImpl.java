@@ -1,7 +1,7 @@
 package edu.uoc.tfg.user.domain.service;
 
 import edu.uoc.tfg.user.SesionData;
-import edu.uoc.tfg.user.Session;
+import edu.uoc.tfg.user.Sesion;
 import edu.uoc.tfg.user.application.request.LoginRequest;
 import edu.uoc.tfg.user.domain.Usuario;
 import edu.uoc.tfg.user.domain.repository.UsuarioRepository;
@@ -9,8 +9,6 @@ import edu.uoc.tfg.user.infrastructure.kafka.KafkaConstants;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 
@@ -31,14 +29,6 @@ public class UsuarioServiceImpl implements UsuarioService {
     }
 
     @Override
-    public Long enviarSesion(SesionData sesionData) {
-        log.trace("Send " + sesionData);
-        kafkaTemplate.send(KafkaConstants.TOPIC_SESSION_CRM, sesionData);
-        kafkaTemplate.send(KafkaConstants.TOPIC_SESSION_CORE, sesionData);
-        return 1l;
-    }
-
-    @Override
     public int login(LoginRequest loginRequest) {
         Optional<Usuario> user = buscaUsuario(loginRequest.getUsuario().getUsuario());
         if(user.isPresent()) {
@@ -50,15 +40,15 @@ public class UsuarioServiceImpl implements UsuarioService {
                 sesionData.setUsuario(user.get().getUsuario());
                 String[] par = new String[3];
 
-                par[0] = Session.getSesion(user.get().getUsuario())[0];
+                par[0] = Sesion.getSesion(user.get().getUsuario())[0];
                 par[1] = Integer.toString(level);
                 par[2] = Long.toString(clienteId);
 
                 sesionData.setSesion(par);
 
-                Session.setLevel(user.get().getUsuario(), level, clienteId);
+                Sesion.setLevel(user.get().getUsuario(), level, clienteId);
                 sesionData.setAlta(true);
-                enviarSesion(sesionData);
+                Sesion.enviarSesion(sesionData, kafkaTemplate);
                 return user.get().getNivel().getValor();
             } else return -1;
 
@@ -67,14 +57,14 @@ public class UsuarioServiceImpl implements UsuarioService {
 
     @Override
     public Boolean logout(String usuario) {
-        if(!Session.comprobarSesionExiste(usuario)){
+        if(!Sesion.comprobarSesionExiste(usuario)){
             return false;
         }else{
-            Session.removeUsuario(usuario);
+            Sesion.removeUsuario(usuario);
             SesionData sesionData = new SesionData();
             sesionData.setUsuario(usuario);
             sesionData.setAlta(false);
-            enviarSesion(sesionData);
+            Sesion.enviarSesion(sesionData, kafkaTemplate);
         }
         return true;
     }
