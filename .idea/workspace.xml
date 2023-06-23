@@ -5,28 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aeecb89f-f45b-4a88-bceb-a8915ae8947b" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/b/2b3b4987632fec6875d8237867ad6f9cfd0f85e5" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/3/7/3721d4bc08af7ffe0c44cc54ecc0147d35181b01" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/6/5/65702e59aeae85c24a55520b5c9867050ef343d9" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/6/7/67c39f8a43120236458dd516f2ec0a9758259645" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/9/9/99c5f9d6d42317b1712fc222b1316b6dd46ce02a" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/c/f/cf1c20d79ddf69344d80dec8d8e517013b53cba9" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/f/8/f8986bc5bd2a0b0f2c9d448deab1645b61ccbb8c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/2/b/2b3b4987632fec6875d8237867ad6f9cfd0f85e5" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/3/7/3721d4bc08af7ffe0c44cc54ecc0147d35181b01" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/6/5/65702e59aeae85c24a55520b5c9867050ef343d9" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/6/7/67c39f8a43120236458dd516f2ec0a9758259645" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/9/9/99c5f9d6d42317b1712fc222b1316b6dd46ce02a" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/c/f/cf1c20d79ddf69344d80dec8d8e517013b53cba9" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/f/8/f8986bc5bd2a0b0f2c9d448deab1645b61ccbb8c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/uoc/tfg/user/Session.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/uoc/tfg/user/Sesion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/uoc/tfg/user/application/request/LoginRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/uoc/tfg/user/application/request/LoginRequest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/uoc/tfg/user/application/rest/UsuarioRESTController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/uoc/tfg/user/application/rest/UsuarioRESTController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/uoc/tfg/user/domain/service/UsuarioService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/uoc/tfg/user/domain/service/UsuarioService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/uoc/tfg/user/domain/service/UsuarioServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/uoc/tfg/user/domain/service/UsuarioServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -162,6 +142,7 @@
       <workItem from="1684961724416" duration="1254000" />
       <workItem from="1686504742684" duration="3518000" />
       <workItem from="1686587653073" duration="3241000" />
+      <workItem from="1687376307992" duration="1406000" />
     </task>
     <servers />
   </component>

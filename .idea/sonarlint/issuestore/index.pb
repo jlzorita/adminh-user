@@ -27,3 +27,5 @@ Gsrc/main/java/edu/uoc/tfg/user/domain/repository/UsuarioRepository.java,2\c\2c
 Lsrc/main/java/edu/uoc/tfg/user/infrastructure/kafka/KafkaProducerConfig.java,9\4\94b160147ea5a980bbce93649d7233e9893950b8
 y
 Isrc/main/java/edu/uoc/tfg/user/infrastructure/kafka/KafkaTopicConfig.java,4\e\4e9421e29f0052cbedda73d124734148dc197bf9
+z
+Jsrc/main/java/edu/uoc/tfg/user/application/rest/UsuarioRESTController.java,3\7\3721d4bc08af7ffe0c44cc54ecc0147d35181b01

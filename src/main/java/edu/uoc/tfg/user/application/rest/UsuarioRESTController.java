@@ -23,8 +23,7 @@ public class UsuarioRESTController {
     @PostMapping("/login")
     @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<Integer> login(@RequestBody LoginRequest loginRequest){
-
-        log.trace("login usuario");
+        log.trace("login");
         int level =  usuarioService.login(loginRequest);
 
         if(level >= 0) return ResponseEntity.ok().body(level);
@@ -34,7 +33,7 @@ public class UsuarioRESTController {
     @PostMapping("/logout/{usuario}")
     @ResponseStatus(HttpStatus.OK)
     public ResponseEntity logout(@PathVariable String usuario){
-
+        log.trace("logout");
         if(usuarioService.logout(usuario)) return new ResponseEntity<>(HttpStatus.OK);
         else return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
     }
@@ -42,6 +41,7 @@ public class UsuarioRESTController {
     @GetMapping("/user/sesion/{usuario}")
     @ResponseStatus(HttpStatus.OK)
     public String[] getUser(@PathVariable String usuario) {
+        log.trace("getUser");
         return Sesion.getSesion(usuario);
     }
 }
